@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import request from "superagent";
 
-function Search({ setBooks }) {
+function Search({ setBooks, setSort }) {
   const [search, setSearch] = useState("");
 
   //   Sets the state to what user enters into search input
@@ -16,10 +16,29 @@ function Search({ setBooks }) {
       .get("https://www.googleapis.com/books/v1/volumes")
       .query({ q: search })
       .then((data) => {
-        setBooks([...data.body.items]);
+        const cleanData = handleData(data);
+        setBooks(cleanData);
       });
   }
 
+  function handleSort(event) {
+    setSort(event.target.value);
+  }
+
+  function handleData(data) {
+    const cleanData = data.body.items.map((book) => {
+      if (book.volumeInfo.hasOwnProperty("publishedDate") === false) {
+        book.volumeInfo["publishedDate"] = "0000";
+      } else if (book.volumeInfo.hasOwnProperty("imageLinks") === false) {
+        book.volumeInfo["imageLinks"] = {
+          thumbnail:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png",
+        };
+      }
+      return book;
+    });
+    return cleanData;
+  }
   return (
     <div className="search">
       <form onSubmit={searchBook} action="">
@@ -31,6 +50,13 @@ function Search({ setBooks }) {
           value={search}
         ></input>
         <button type="submit">Search</button>
+        <select defaultValue="Sort" onChange={handleSort}>
+          <option disabled value="Sort">
+            Sort
+          </option>
+          <option value="Newest">Newest</option>
+          <option value="Oldest">Oldest</option>
+        </select>
       </form>
     </div>
   );
