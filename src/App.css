@@ -26,8 +26,9 @@ header h1 {
 }
 
 input {
-  width: 150px;
+  width: 200px;
   padding: 5px;
+  font-family: "Cutive Mono", monospace;
 }
 
 button,
@@ -47,6 +48,7 @@ select {
 
 .card-container {
   width: 250px;
+  height: auto;
   border: 1px solid;
   margin: 0 auto;
   border-radius: 3px;
@@ -54,12 +56,13 @@ select {
 }
 
 .details {
-  height: 130px;
+  height: auto;
   padding: 30px;
 }
 
 .details h2 {
   font-size: 1em;
+  font-family: "Roboto Mono", monospace;
 }
 
 .details h3 {
@@ -76,4 +79,36 @@ select {
   margin-right: auto;
   width: 50%;
   margin-top: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid;
+  padding: 150px;
+  z-index: 3;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+}
+
+.visible {
+  display: block;
+}
+
+button,
+select,
+.modal,
+h3,
+p,
+:placeholder-shown {
+  font-family: "Cutive Mono", monospace;
+}
+
+p {
+  margin-bottom: 30px;
 }

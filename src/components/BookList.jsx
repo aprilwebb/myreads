@@ -12,8 +12,11 @@ function BookList(props) {
             key={index}
             image={book.volumeInfo.imageLinks.thumbnail}
             title={book.volumeInfo.title}
-            author={book.volumeInfo.authors}
+            author={book.volumeInfo.authors[0]}
             publishedDate={book.volumeInfo.publishedDate}
+            description={book.volumeInfo.description}
+            pages={book.volumeInfo.pageCount}
+            publisher={book.volumeInfo.publisher}
           />
         );
       })}

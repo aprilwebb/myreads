@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 function BookCard(props) {
+  const [modal, setModal] = useState(false);
+
+  function displayDescription() {
+    setModal(true);
+  }
+
+  function hideDescription() {
+    setModal(false);
+  }
+
   return (
     <div className="card-container">
       <img className="book-img" src={props.image} alt={props.title} />
@@ -13,6 +23,17 @@ function BookCard(props) {
             ? "Not available"
             : props.publishedDate.substring(0, 4)}
         </p>
+        <button onClick={displayDescription}>More details</button>
+        <div className={`modal ${modal ? "visible" : " "}`}>
+          <h3>Book Description:</h3>
+          <p> {props.description}</p>
+
+          <p>
+            Publisher: {props.publisher ? props.publisher : "Not available"}
+          </p>
+          <p>Page Count: {props.pages ? props.pages : "Not available"}</p>
+          <button onClick={hideDescription}>Close</button>
+        </div>
       </div>
     </div>
   );
