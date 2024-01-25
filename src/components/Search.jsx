@@ -50,7 +50,7 @@ function Search({ setBooks, setSort }) {
           value={search}
         ></input>
         <button type="submit">Search</button>
-        <select defaultValue="Sort" onChange={handleSort}>
+        <select id="sort" defaultValue="Sort" onChange={handleSort}>
           <option disabled value="Sort">
             Sort
           </option>

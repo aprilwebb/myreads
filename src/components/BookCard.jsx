@@ -25,14 +25,21 @@ function BookCard(props) {
         </p>
         <button onClick={displayDescription}>More details</button>
         <div className={`modal ${modal ? "visible" : " "}`}>
-          <h3>Book Description:</h3>
-          <p> {props.description}</p>
+          <img id="modal-img" src={props.image} alt={props.title} />
+          <div className="modal-details">
+            <h2>{props.title}</h2>
+            <h3>Author: {props.author}</h3>
+            <h3>Book Description:</h3>
+            <p> {props.description}</p>
 
-          <p>
-            Publisher: {props.publisher ? props.publisher : "Not available"}
-          </p>
-          <p>Page Count: {props.pages ? props.pages : "Not available"}</p>
-          <button onClick={hideDescription}>Close</button>
+            <p>
+              Publisher: {props.publisher ? props.publisher : "Not available"}
+            </p>
+            <p>Page Count: {props.pages ? props.pages : "Not available"}</p>
+            <button id="modal-button" onClick={hideDescription}>
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
