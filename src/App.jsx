@@ -7,21 +7,21 @@ function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    let result = await fetch("http://localhost:3000/register", {
-      method: "post",
-      body: JSON.stringify({ name, email }),
-      headers: { "Content-Type": "application/json" },
-    });
-    result = await result.json();
-    console.warn(result);
-    if (result) {
-      alert("Data saved succesfully");
-      setEmail("");
-      setName("");
-    }
-  }
+  // async function handleSubmit(event) {
+  //   event.preventDefault();
+  //   let result = await fetch("http://localhost:3000/register", {
+  //     method: "post",
+  //     body: JSON.stringify({ name, email }),
+  //     headers: { "Content-Type": "application/json" },
+  //   });
+  //   result = await result.json();
+  //   console.warn(result);
+  //   if (result) {
+  //     alert("Data saved succesfully");
+  //     setEmail("");
+  //     setName("");
+  //   }
+  // }
   return (
     <>
       <div className="App">

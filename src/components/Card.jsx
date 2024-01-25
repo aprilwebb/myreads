@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function BookCard(props) {
+function Card(props) {
   const [modal, setModal] = useState(false);
 
   function displayDescription() {
@@ -46,4 +46,4 @@ function BookCard(props) {
   );
 }
 
-export default BookCard;
+export default Card;

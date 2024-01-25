@@ -1,18 +1,18 @@
 import React from "react";
-import BookCard from "./BookCard";
+import Card from "./Card";
 
 /* Mapping thru books received in API call & rendering them as BookCard component below. */
 
-function BookList(props) {
+function BookProps(props) {
   return (
     <div className="list">
       {props.books.map((book, index) => {
         return (
-          <BookCard
+          <Card
             key={index}
             image={book.volumeInfo.imageLinks.thumbnail}
             title={book.volumeInfo.title}
-            author={book.volumeInfo.authors[0]}
+            author={book.volumeInfo.authors}
             publishedDate={book.volumeInfo.publishedDate}
             description={book.volumeInfo.description}
             pages={book.volumeInfo.pageCount}
@@ -24,4 +24,4 @@ function BookList(props) {
   );
 }
 
-export default BookList;
+export default BookProps;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Search from "./Search";
-import BookList from "./BookList";
+import BookProps from "./BookProps";
 
 function Books() {
   const [books, setBooks] = useState([]);
@@ -24,7 +24,7 @@ function Books() {
   return (
     <div>
       <Search setBooks={setBooks} setSort={setSort} />
-      <BookList books={sortedBooks} />
+      <BookProps books={sortedBooks} />
     </div>
   );
 }

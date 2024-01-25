@@ -27,13 +27,18 @@ function Search({ setBooks, setSort }) {
 
   function handleData(data) {
     const cleanData = data.body.items.map((book) => {
-      if (book.volumeInfo.hasOwnProperty("publishedDate") === false) {
+      if (!book.volumeInfo.hasOwnProperty("publishedDate")) {
         book.volumeInfo["publishedDate"] = "0000";
-      } else if (book.volumeInfo.hasOwnProperty("imageLinks") === false) {
+      } else if (!book.volumeInfo.hasOwnProperty("imageLinks")) {
         book.volumeInfo["imageLinks"] = {
           thumbnail:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png",
         };
+      } else if (
+        book.volumeInfo.hasOwnProperty("authors") &&
+        book.volumeInfo.authors.length > 0
+      ) {
+        book.volumeInfo.authors = book.volumeInfo.authors.join(", ");
       }
       return book;
     });
