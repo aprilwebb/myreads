@@ -2,12 +2,15 @@
   "name": "myreads",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://aprilwebb.github.io/myreads",
   "engines": {
     "node": "20.7.0",
     "npm": "10.1.0"
   },
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "myreads -d build",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -19,20 +22,12 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "bootstrap-icons": "^1.11.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.2",
-    "express": "^4.18.2",
-    "express-session": "^1.17.3",
     "font-awesome": "^4.7.0",
-    "mongodb": "^6.3.0",
-    "mongoose": "^8.1.0",
     "nodemon": "^3.0.3",
-    "passport": "^0.7.0",
-    "passport-google-oauth20": "^2.0.0",
-    "passport-local-mongoose": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "superagent": "^8.1.2"
@@ -45,6 +40,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "gh-pages": "^6.1.1",
     "vite": "^5.0.12"
   }
 }
